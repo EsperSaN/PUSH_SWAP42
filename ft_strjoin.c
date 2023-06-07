@@ -7,7 +7,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 
 	if (!s1 || !s2)
 		return (0);
-	j_str = malloc((ft_strlen(s1) + ft_strlen(s2)) + 1);
+	j_str = malloc((ft_strlen(s1) + ft_strlen(s2)) + 2);
 	if (!j_str)
 		return (0);
 	str_joined = j_str;
@@ -23,6 +23,8 @@ char	*ft_strjoin(char const *s1, char const *s2)
 		s2++;
 		j_str++;
 	}
+	*j_str = ' ';
+	j_str++;
 	*j_str = '\0';
 	return (str_joined);
 }
