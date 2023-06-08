@@ -1,29 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   check.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pruenrua <pruenrua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/08 14:03:46 by pruenrua          #+#    #+#             */
-/*   Updated: 2023/06/08 15:17:40 by pruenrua         ###   ########.fr       */
+/*   Created: 2023/06/08 16:04:29 by pruenrua          #+#    #+#             */
+/*   Updated: 2023/06/08 16:08:08 by pruenrua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(int ac, char **av)
+void	check_stack(t_var *var)
 {
-	t_var	var;
-	
-	if (ac == 1)
-		return (1);
-	
-	av_checker(av);
-	printf("check PASS!!\n");
-	
-	var.joined_av = av_joiner(av);
-	printf("joined OK input = [%s]\n", var.joined_av);
-	
-	stack_init(&var);
+	while (var->a)
+	{
+		printf("[%d] ------- [%d]\n", var->a->value, var->b->value);
+		if (var->a)
+			var->a = var->a->next;
+		if (var->b)
+			var->b = var->b->next;
+	}
 }

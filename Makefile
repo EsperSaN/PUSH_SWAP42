@@ -1,10 +1,22 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: pruenrua <pruenrua@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2023/06/08 14:03:38 by pruenrua          #+#    #+#              #
+#    Updated: 2023/06/08 16:08:18 by pruenrua         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 NAME = push_swap
 
 CC = gcc
 
 CFLAGS = -Wall -Werror -Wextra
 
-SRC = push_swap.c checker.c error.c praser.c tool.c ft_strjoin.c
+SRC = push_swap.c checker.c error.c init.c tool.c ft_split.c ft_atoi.c free.c check.c
 
 OBJ = $(SRC:.c=.o)
 
