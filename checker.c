@@ -6,7 +6,7 @@
 /*   By: pruenrua <pruenrua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 14:03:22 by pruenrua          #+#    #+#             */
-/*   Updated: 2023/06/08 14:24:06 by pruenrua         ###   ########.fr       */
+/*   Updated: 2023/06/09 20:46:42 by pruenrua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ int	is_allow(char c)
 
 void	av_checker(char	**av)
 {
+	/* should add the above MAX or MIN INT and return immediattt*/
 	int	i;
 	int	j;
 
