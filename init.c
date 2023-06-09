@@ -6,7 +6,7 @@
 /*   By: pruenrua <pruenrua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 14:03:07 by pruenrua          #+#    #+#             */
-/*   Updated: 2023/06/08 16:42:03 by pruenrua         ###   ########.fr       */
+/*   Updated: 2023/06/09 18:37:30 by pruenrua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,9 @@ char	*av_joiner(char	**av)
 	int		i;
 
 	i = 0;
-	joined_str = malloc(sizeof(char) * 1);
+	joined_str = ft_calloc(sizeof(char), 1);
 	if (!joined_str)
 		error_exit(255);
-	joined_str[0] = 0;
 	if (!av)
 		return (0);
 	while (av[++i])
@@ -51,14 +50,13 @@ void	stack_init(t_var *var)
 		error_exit(255);
 	free(var->joined_av);
 	i = -1;
-	while (split_str[++i])
+	/*while (split_str[++i])
 		printf("split [%d] = %s\n", i, split_str[i]);
-	i = -1;
+	i = -1;*/
 
 	while (split_str[++i])
-	{
 		ft_lstadd_front(&var->a, ft_lstnew(ft_atoi(split_str[i])));
-	}
+	set_the_bitstr(&var);
 	free2d(split_str);
 
 	check_stack(var);
