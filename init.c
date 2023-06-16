@@ -86,8 +86,8 @@ void	stack_init(t_var *var)
 		while (var->a)
 		{
 			tmp = var->a;
-			free(tmp);
 			var->a = var->a->next;
+			free(tmp);
 		}
 		var->a = NULL;
 		error_exit(255);
