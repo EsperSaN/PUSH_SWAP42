@@ -15,14 +15,16 @@
 void	check_stack(t_var *var)
 {
 	printf("\nBOX A | BOX B\n\n\n");
+	int i = -1;
 	while (var->a)
 	{
-		printf("  [%d] [%s]|", var->a->value, var->a->bit_str);
+		printf("loop [%d]", ++i);
+		printf("  [%d] index [%d]|", var->a->value, var->a->index);
 		if (var->a)
 			var->a = var->a->next;
 		if (var->b)
 		{
-			printf(" [%d] [%s] \n", var->b->value, var->b->bit_str);
+			printf(" [%d] index [%d]\n", var->b->value, var->b->index);
 			var->b = var->b->next;
 		}
 		else

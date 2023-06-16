@@ -24,6 +24,7 @@ int	main(int ac, char **av)
 
 	var.joined_av = av_joiner(av);
 	printf("joined OK input = [%s]\n", var.joined_av);
+	
 	stack_init(&var);
 	printf("init to the stack scc \n");
 	//sorting_stack(&var);

@@ -71,6 +71,8 @@ t_stack	*ft_lstnew(int value)
 	if (!new)
 		return (NULL);
 	new->value = value;
+	new->prv = NULL;
+	new->index = -1;
 	new->next = NULL;
 	return (new);
 }

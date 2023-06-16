@@ -45,7 +45,7 @@ int	ft_atoi(const char *str)
 		str++;
 		len++;
 	}
-	if (len > 19 || result > 9223372036854775807)
-		return (overflow_welcome(lob));
-	return ((int)(result * lob));
+	//if (len > 19 || result > 9223372036854775807)
+	//	return (overflow_welcome(lob));
+	return ((result * lob));
 }

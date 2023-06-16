@@ -30,4 +30,5 @@ void	free2d(char	**str)
 		free(str);
 		str = NULL;
 	}
+	str = NULL;
 }

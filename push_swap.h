@@ -16,11 +16,14 @@
 # include	<stdlib.h>
 # include	<stddef.h>
 # include	<stdio.h>
+# include	<limits.h>
+#include	<stdint.h>
 
 typedef struct t_s{
 	int				value;
-	char			*bit_str;
-	struct t_s		*next;
+	int				index;
+	struct	t_s		*next;
+	struct	t_s		*prv;
 }	t_stack;
 
 typedef struct t_ps{

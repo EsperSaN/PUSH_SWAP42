@@ -40,10 +40,10 @@ void	av_checker(char	**av)
 	/* should add the above MAX or MIN INT and return immediattt*/
 	int	i;
 	int	j;
+	int	value;
 
 	if (!av)
 		return ;
-	j = 0;
 	i = 0;
 	while (av[++i])
 	{
@@ -58,6 +58,9 @@ void	av_checker(char	**av)
 					error_exit(255);
 			}
 			if (!is_allow(av[i][j]))
+				error_exit(255);
+			value = atoi(av[i]);
+			if (value < INT_MIN || value > INT_MAX)
 				error_exit(255);
 			j++;
 		}
