@@ -19,13 +19,13 @@ int	main(int ac, char **av)
 	if (ac == 1)
 		return (1);
 
-	av_checker(av);
+	av_checker(av); // check each arg and value is acceptable? and is_dup is here
 	printf("check PASS!!\n");
 
-	var.joined_av = av_joiner(av);
+	var.joined_av = av_joiner(av); // malloc
 	printf("joined OK input = [%s]\n", var.joined_av);
 	
-	stack_init(&var);
+	stack_init(&var); // init to linklist and check for the << malloc
 	printf("init to the stack scc \n");
 	//sorting_stack(&var);
 }
