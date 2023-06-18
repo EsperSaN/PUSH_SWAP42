@@ -21,7 +21,7 @@ int	overflow_welcome(int lob)
 	return (lob);
 }
 
-int	ft_atoi(const char *str)
+long	ft_atoi(const char *str)
 {
 	int				len;
 	int				lob;
