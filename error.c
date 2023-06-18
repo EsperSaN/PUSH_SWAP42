@@ -12,8 +12,9 @@
 
 #include	"push_swap.h"
 
-void	error_exit(int err)
+void	error_exit(int err, char *errstr)
 {
-	write(2, "Error\n", 6);
+	write(2, "Error : ", 8);
+	write(2, errstr, ft_strlen(errstr));
 	exit(err);
 }
