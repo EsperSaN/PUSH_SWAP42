@@ -38,7 +38,7 @@ void	av_checker(char	**av);
 char	*av_joiner(char	**av);
 void	stack_init(t_var *var);
 
-void	error_exit(int err);
+void	error_exit(int err, char *errstr);
 
 char	*ft_strjoin(char const *s1, char const *s2);
 
@@ -47,7 +47,7 @@ char	**ft_split(char const *s, char c);
 
 void	ft_lstadd_back(t_stack **lst, t_stack *new);
 void	ft_lstadd_front(t_stack **lst, t_stack *new);
-int		ft_atoi(const char *str);
+long	ft_atoi(const char *str);
 t_stack	*ft_lstnew(int value);
 void	free2d(char	**str);
 
