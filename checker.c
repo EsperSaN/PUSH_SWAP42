@@ -6,7 +6,7 @@
 /*   By: pruenrua <pruenrua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 14:03:22 by pruenrua          #+#    #+#             */
-/*   Updated: 2023/06/09 20:46:42 by pruenrua         ###   ########.fr       */
+/*   Updated: 2023/06/22 11:32:07 by pruenrua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,28 +35,55 @@ int	is_allow(char c)
 		return (1);
 }
 
-int	is_dup(char **av)
-{
-	long	i;
-	long	j;
+//int	is_dup(char **av)
+//{
+//	long	i;
+//	long	j;
 
-	i = -1;
-	while (av[++i])
+//	i = 0;
+//	while (av[++i])
+//	{
+//		j = i + 1; // nust be over flow ??
+//		while (av[j])
+//		{
+//			printf("check the [%s] and [%s]\n", av[i],av[j]);
+//			if (ft_atoi(av[i]) == ft_atoi(av[j]))
+//				return (1);
+//			j++;
+//		}
+//	}
+//	return (0);
+//}
+
+int	count_op(char	*str)
+{
+	int	counter;
+
+	counter = 0;
+	if (!str)
+		return (0);
+	while (*str)
 	{
-		j = i + 1; // nust be over flow ??
-		while(av[j])
-		{
-			if (ft_atoi(av[i]) == ft_atoi(av[j]))
-				return(1);
-			j++;
-		}
+		if (*str == '-' || *str == '+')
+			counter++;
+		str++;
 	}
-	return (0);
+	return (counter);
+}
+
+int	is_all_space(char	*str)
+{
+	while (*str)
+	{
+		if (!is_space(*str))
+			return(0);
+		str++;
+	}
+	return (1);
 }
 
 void	av_checker(char	**av)
 {
-	/* should add the above MAX or MIN INT and return immediattt*/
 	int		i;
 	int		j;
 	long	value;
@@ -66,24 +93,21 @@ void	av_checker(char	**av)
 	i = 0;
 	while (av[++i])
 	{
-		if (av[i] == NULL || ft_strlen(av[i]) == 0)
+		if (av[i] == NULL || ft_strlen(av[i]) == 0 || is_all_space(av[i]))
 			error_exit(255, "the null or \" \" is unacceptable\n");
-		j = 0;
-		while (av[i][j])
+		j = -1;
+		while (av[i][++j])
 		{
+			if (!is_allow(av[i][j]) || count_op(av[i]))
+				error_exit(255, "only the number and one operator is allow\n");
 			if (av[i][j] == '-' || av[i][j] == '+')
 			{
 				if (!is_num(av[i][j + 1]))
-					error_exit(255, "only the int is acceptable\n");
+					error_exit(255, "only number allow next to operator\n");
 			}
-			if (!is_allow(av[i][j]))
-				error_exit(255, "only the int is acceptable\n");
 			value = ft_atoi(av[i]);
 			if (value < INT_MIN || value > INT_MAX)
 				error_exit(255, "the input is beyond the INT try again\n");
-			j++;
 		}
 	}
-	if (is_dup(av))
-		error_exit(255, "the arg is duplicate\n");
 }

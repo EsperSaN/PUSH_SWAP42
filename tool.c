@@ -6,7 +6,7 @@
 /*   By: pruenrua <pruenrua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 14:04:03 by pruenrua          #+#    #+#             */
-/*   Updated: 2023/06/09 18:35:13 by pruenrua         ###   ########.fr       */
+/*   Updated: 2023/06/22 17:16:31 by pruenrua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,6 @@ t_stack	*ft_lstnew(int value)
 	if (!new)
 		return (NULL);
 	new->value = value;
-	new->prv = NULL;
 	new->index = -1;
 	new->next = NULL;
 	return (new);

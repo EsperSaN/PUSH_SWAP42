@@ -6,7 +6,7 @@
 /*   By: pruenrua <pruenrua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 14:03:46 by pruenrua          #+#    #+#             */
-/*   Updated: 2023/06/09 18:18:33 by pruenrua         ###   ########.fr       */
+/*   Updated: 2023/06/22 18:05:54 by pruenrua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	main(int ac, char **av)
 	var.joined_av = av_joiner(av); // malloc
 	printf("joined OK input = [%s]\n", var.joined_av);
 	
-	stack_init(&var); // init to linklist and check for the << malloc
+	stack_init(&var, ac); // init to linklist and check for the << malloc
 	printf("init to the stack scc \n");
-	//sorting_stack(&var);
+	//sorting_stack(&var, ac);
 }
