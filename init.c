@@ -6,7 +6,7 @@
 /*   By: pruenrua <pruenrua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 14:03:07 by pruenrua          #+#    #+#             */
-/*   Updated: 2023/06/23 14:58:38 by pruenrua         ###   ########.fr       */
+/*   Updated: 2023/06/24 21:18:37 by pruenrua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,66 +42,49 @@ char	*av_joiner(char	**av)
 
 int	is_dup(t_stack	*st)
 {
-//	t_stack	*tmp;
+	t_stack	*tmp;
 
-//	while (st != NULL)
-//	{
-//		tmp = st->next;
-//		while (tmp != NULL)
-//		{
-//			if (st->value == tmp->value)
-//				return (1);
-//			tmp = tmp->next;
-//		}
-//		st = st->next;
-//	}
-//	return (0);
-	int	i;
-	int j;
-	
-	i = 0;
-	
-	while (st[i].value)
+	while (st != NULL)
 	{
-		printf("\\\\ read [%d]\\\\ \n", i);
-		j = i + 1;
-		while (st[j].value)
+		tmp = st->next;
+		while (tmp != NULL)
 		{
-			printf("read [%d]\n", i);
-			if (st[i].value == st[j].value)
+			printf("compare [%d] with [%d]\n", st->value, tmp->value);
+			if (st->value == tmp->value)
 				return (1);
-			j++;
+			tmp = tmp->next;
 		}
-		i++;
+		st = st->next;
 	}
 	return (0);
-		
-}
+ }
 
-void	stack_init(t_var *var, int ac)
+void	stack_init(t_var *var) // dont use the ac thing !!!!
 {
 	char		**split_str;
 	int			i;
-	t_stack		*tmp;
+	int			word;
 	
 	split_str = ft_split(var->joined_av, ' ');
 	if (split_str == NULL)
 		error_exit(255, "fail to split\n");
 	free(var->joined_av);
 	i = 0;
-	/*while (split_str[++i])
-		printf("split [%d] = %s\n", i, split_str[i]);
-	i = -1;*/
+	word = 0;
+	while (split_str[word])
+		word++;
 	var->b = NULL;
 	var->a = NULL;
-	
-	var->a = malloc(sizeof(t_stack) * (ac - 1));
-	tmp = var->a;
+	var->max_index = word - 1;
+	var->a = malloc(sizeof(t_stack) * word); // try na init the link list to the array to use both index and the next function of those thing
 	while (split_str[i])
 	{
 		var->a[i].value = ft_atoi(split_str[i]);
 		var->a[i].index = -1;
-		var->a[i].next = &var->a[i + 1];
+		if (i == word - 1)
+			var->a[i].next = NULL;
+		else
+			var->a[i].next = &var->a[i + 1];
 		i++;
 	}
 	if (is_dup(var->a))
@@ -109,23 +92,6 @@ void	stack_init(t_var *var, int ac)
 		free(var->a);
 		error_exit(255, "the input must not be duplicate\n");
 	}
-	//while (split_str[i])
-	//{
-	//	printf("init the [%s]\n", split_str[i]);
-	//	ft_lstadd_back(&var->a, ft_lstnew(ft_atoi(split_str[i]))); //<< The first argument should be at the top of the stack (be careful about the order).
-	//	i++;
-	//}
-	//if (is_dup(var->a))
-	//{
-	//	while (var->a)
-	//	{
-	//		tmp = var->a;
-	//		var->a = var->a->next;
-	//		free(tmp);
-	//	}
-	//	var->a = NULL;
-	//	error_exit(255, "the input must not be duplicate\n");
-	//}
 	free2d(split_str);
-	check_stack(var);
+
 }

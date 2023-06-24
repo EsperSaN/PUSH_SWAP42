@@ -6,7 +6,7 @@
 /*   By: pruenrua <pruenrua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 14:03:22 by pruenrua          #+#    #+#             */
-/*   Updated: 2023/06/22 11:32:07 by pruenrua         ###   ########.fr       */
+/*   Updated: 2023/06/24 22:57:43 by pruenrua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,12 +93,12 @@ void	av_checker(char	**av)
 	i = 0;
 	while (av[++i])
 	{
-		if (av[i] == NULL || ft_strlen(av[i]) == 0 || is_all_space(av[i]))
+		if (av[i] == NULL || ft_strlen(av[i]) == 0 || is_all_space(av[i]) || count_op(av[i]) > 1)
 			error_exit(255, "the null or \" \" is unacceptable\n");
 		j = -1;
 		while (av[i][++j])
 		{
-			if (!is_allow(av[i][j]) || count_op(av[i]))
+			if (!is_allow(av[i][j]))
 				error_exit(255, "only the number and one operator is allow\n");
 			if (av[i][j] == '-' || av[i][j] == '+')
 			{
