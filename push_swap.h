@@ -6,7 +6,7 @@
 /*   By: pruenrua <pruenrua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 14:03:53 by pruenrua          #+#    #+#             */
-/*   Updated: 2023/06/23 14:52:02 by pruenrua         ###   ########.fr       */
+/*   Updated: 2023/06/24 21:18:31 by pruenrua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,8 @@ typedef struct t_s{
 
 typedef struct t_ps{
 	t_stack	*a;
-	t_stack	*b;
+	t_stack *b;
+	int		max_index;
 	char	*joined_av;
 	int		*max_num;
 	int		*min_num;
@@ -35,7 +36,7 @@ typedef struct t_ps{
 
 void	av_checker(char	**av);
 char	*av_joiner(char	**av);
-void	stack_init(t_var *var ,int ac);
+void	stack_init(t_var *var);
 
 void	error_exit(int err, char *errstr);
 
@@ -50,7 +51,7 @@ long	ft_atoi(const char *str);
 t_stack	*ft_lstnew(int value);
 void	free2d(char	**str);
 
-void	check_stack(t_var *var);
+void	check_stack(t_var var);
 void	sorting_stack(t_var	*var, int ac);
 void	*ft_calloc(size_t count, size_t size);
 char	*int_to_bit(int n);
