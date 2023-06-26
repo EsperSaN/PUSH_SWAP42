@@ -6,7 +6,7 @@
 /*   By: pruenrua <pruenrua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 14:03:53 by pruenrua          #+#    #+#             */
-/*   Updated: 2023/06/25 21:47:17 by pruenrua         ###   ########.fr       */
+/*   Updated: 2023/06/26 20:28:43 by pruenrua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include	<stddef.h>
 # include	<stdio.h>
 # include	<limits.h>
-#include	<stdint.h>
+# include	<stdint.h>
 
 typedef struct t_s{
 	int				value;
@@ -27,7 +27,7 @@ typedef struct t_s{
 
 typedef struct t_ps{
 	t_stack	*a;
-	t_stack *b;
+	t_stack	*b;
 	int		max_index;
 	char	*joined_av;
 	int		*max_num;
@@ -55,5 +55,6 @@ void	check_stack(t_var var);
 void	sorting_stack(t_var	*var);
 void	*ft_calloc(size_t count, size_t size);
 char	*int_to_bit(int n);
+void	free_var(t_var	*var);
 
 #endif

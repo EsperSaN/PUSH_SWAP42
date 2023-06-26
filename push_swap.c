@@ -6,7 +6,7 @@
 /*   By: pruenrua <pruenrua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 14:03:46 by pruenrua          #+#    #+#             */
-/*   Updated: 2023/06/25 21:51:38 by pruenrua         ###   ########.fr       */
+/*   Updated: 2023/06/26 20:25:45 by pruenrua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,4 +64,5 @@ int	main(int ac, char **av)
 	pre_sort(&var);
 	check_stack(var);
 	sorting_stack(&var);
+	free_var(&var);
 }
