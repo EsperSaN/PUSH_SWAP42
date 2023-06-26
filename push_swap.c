@@ -6,7 +6,7 @@
 /*   By: pruenrua <pruenrua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 14:03:46 by pruenrua          #+#    #+#             */
-/*   Updated: 2023/06/24 23:01:47 by pruenrua         ###   ########.fr       */
+/*   Updated: 2023/06/25 21:51:38 by pruenrua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,5 +63,5 @@ int	main(int ac, char **av)
 	printf("init to the stack scc max index = [%d]\n", var.max_index);
 	pre_sort(&var);
 	check_stack(var);
-	sorting_stack(&var, ac);
+	sorting_stack(&var);
 }

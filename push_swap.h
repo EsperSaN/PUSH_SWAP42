@@ -6,7 +6,7 @@
 /*   By: pruenrua <pruenrua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 14:03:53 by pruenrua          #+#    #+#             */
-/*   Updated: 2023/06/24 21:18:31 by pruenrua         ###   ########.fr       */
+/*   Updated: 2023/06/25 21:47:17 by pruenrua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ t_stack	*ft_lstnew(int value);
 void	free2d(char	**str);
 
 void	check_stack(t_var var);
-void	sorting_stack(t_var	*var, int ac);
+void	sorting_stack(t_var	*var);
 void	*ft_calloc(size_t count, size_t size);
 char	*int_to_bit(int n);
 

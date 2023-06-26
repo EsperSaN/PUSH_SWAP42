@@ -6,28 +6,31 @@
 /*   By: pruenrua <pruenrua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/09 17:27:12 by pruenrua          #+#    #+#             */
-/*   Updated: 2023/06/22 16:51:37 by pruenrua         ###   ########.fr       */
+/*   Updated: 2023/06/25 21:51:13 by pruenrua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-void	sorting_stack(t_var	*var, int ac)
+int	is_sorted(t_var	var)
 {
-	int	index;
+	int i;
 
-	index = 0;
-	if (!var) // not cesser sary
-		return ;
-	while (index < ac)
+	i = 0;
+	while (i < var.max_index)
 	{
-		while ()
-		{
-			
-		}
-		index++;
+		if (var.a[i].index > var.a[i + 1].index)
+			return(0);
+		i++;
 	}
+	return(1);
+}
 
-	
-	
+void	sorting_stack(t_var	*var)
+{
+	if (is_sorted(*var))
+		printf("already sored\n");
+	else if ((var->max_index + 1) == 2)
+		printf("sort 2\n");
+	else
+		printf("sort etc\n");
 }
