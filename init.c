@@ -93,5 +93,5 @@ void	stack_init(t_var *var) // dont use the ac thing !!!!
 		error_exit(255, "the input must not be duplicate\n");
 	}
 	free2d(split_str);
-
+	var->tmp_a = var->a;
 }

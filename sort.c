@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pruenrua <pruenrua@student.42.fr>          +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/09 17:27:12 by pruenrua          #+#    #+#             */
-/*   Updated: 2023/06/26 20:24:51 by pruenrua         ###   ########.fr       */
+/*   Updated: 2023/07/06 09:18:11 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,13 +25,13 @@ int	is_sorted(t_var	var)
 	}
 	return (1);
 }
-
-void	sorting_stack(t_var	*var)
+void	first_step_init(t_var var)
 {
-	if (is_sorted(*var))
-		printf("already sored\n");
-	else if ((var->max_index + 1) == 2)
-		printf("sort 2\n");
-	else
-		printf("sort etc\n");
+	pushb_until_three_highvalue(var);
+}
+
+
+void	sorting_stack(t_var	var)
+{
+	pushb_until_three_highvalue(var);
 }

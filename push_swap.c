@@ -63,6 +63,6 @@ int	main(int ac, char **av)
 	printf("init to the stack scc max index = [%d]\n", var.max_index);
 	pre_sort(&var);
 	check_stack(var);
-	sorting_stack(&var);
+	sorting_stack(var);
 	free_var(&var);
 }

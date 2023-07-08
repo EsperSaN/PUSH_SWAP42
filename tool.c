@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   tool.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pruenrua <pruenrua@student.42.fr>          +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 14:04:03 by pruenrua          #+#    #+#             */
-/*   Updated: 2023/06/22 17:16:31 by pruenrua         ###   ########.fr       */
+/*   Updated: 2023/07/01 11:48:52 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,4 +99,17 @@ void	ft_lstadd_front(t_stack **lst, t_stack *new)
 		new->next = *lst;
 		*lst = new;
 	}
+}
+
+int	ft_lstlen(t_stack	*stack)
+{
+	int	i;
+
+	i = 0;
+	while (stack)
+	{
+		stack = stack->next;
+		i++;
+	}
+	return (i);
 }
