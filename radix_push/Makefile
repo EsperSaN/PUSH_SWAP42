@@ -1,0 +1,42 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: root <root@student.42.fr>                  +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2023/07/17 05:33:12 by root              #+#    #+#              #
+#    Updated: 2023/07/17 12:08:58 by root             ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+NAME = push_swap
+
+CC = gcc
+
+CFLAGS = -Wall -Werror -Wextra
+
+SRC = util.c util2_lst.c util3_split.c util4_atoi.c \
+	argument_check.c init_dup_checker.c arg_check_util.c av_joiner.c \
+	free_and_error.c pre_sort.c operation.c sort.c push_swap.c  
+
+OBJ = $(SRC:.c=.o)
+
+HEADER = push_swap.h
+
+RM = rm -f
+
+all : $(NAME) $(HEADER) clean
+
+$(NAME) : $(HEADER) $(OBJ)
+	$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
+
+clean :
+	$(RM) $(OBJ)
+
+fclean : clean
+	$(RM) $(NAME)
+
+re : fclean all
+
+.PHONY : all re clean fclean push_swap
