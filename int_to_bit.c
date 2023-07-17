@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   int_to_bit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pruenrua <pruenrua@student.42.fr>          +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/09 17:38:05 by pruenrua          #+#    #+#             */
-/*   Updated: 2023/06/09 17:40:29 by pruenrua         ###   ########.fr       */
+/*   Updated: 2023/07/13 04:12:17 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,29 +64,4 @@ void	min_int_welcome(int *n, char *a, unsigned int *len)
 		*n = 214748364;
 		*len = *len - 1;
 	}
-}
-
-char	*int_to_bit(int n)
-{
-	char			*a;
-	unsigned int	len;
-
-	len = plz_count(n);
-	a = ft_calloc((len + 1), sizeof(char));
-	if (!a)
-		return (0);
-	if (n == 0)
-		a[0] = '0';
-	if (n < 0)
-	{
-		n = n * -1;
-		a[0] = '-';
-	}
-	min_int_welcome(&n, a, &len);
-	while (n && len > 0)
-	{
-		a[len-- - 1] = ('0' + (n % 2));
-		n = n / 2;
-	}
-	return (a);
 }

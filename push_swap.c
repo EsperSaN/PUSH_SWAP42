@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pruenrua <pruenrua@student.42.fr>          +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 14:03:46 by pruenrua          #+#    #+#             */
-/*   Updated: 2023/06/26 20:25:45 by pruenrua         ###   ########.fr       */
+/*   Updated: 2023/07/17 01:27:54 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int	find_min_no_index(t_stack *stack, int size)
 	return(lowest);
 }
 
-void	pre_sort(t_var	*var)
+void	pre_sort_index(t_var	*var)
 {
 	int	index;
 	index = 0;
@@ -53,16 +53,19 @@ int	main(int ac, char **av)
 	if (ac == 1)
 		return (1);
 
-	av_checker(av); // check each arg and value is acceptable? and is_dup is here
+	av_checker(av);
 	printf("check PASS!!\n");
 
-	var.joined_av = av_joiner(av); // malloc
+	var.joined_av = av_joiner(av);
 	printf("joined OK input = [%s]\n", var.joined_av);
 	
 	stack_init(&var); // init to linklist and check for the << malloc
 	printf("init to the stack scc max index = [%d]\n", var.max_index);
-	pre_sort(&var);
+	
+	pre_sort_index(&var);
+
 	check_stack(var);
+
 	sorting_stack(var);
 	free_var(&var);
 }
