@@ -6,7 +6,7 @@
 /*   By: pruenrua <pruenrua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/17 01:39:07 by root              #+#    #+#             */
-/*   Updated: 2023/07/21 21:06:15 by pruenrua         ###   ########.fr       */
+/*   Updated: 2023/07/21 21:37:28 by pruenrua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,13 +63,13 @@ void	radixs(t_var var)
 		while (i <= var.max_index)
 		{
 			if (((var.a->index >> loop) & 1) == 1)
-				rev_stack(&var.a, "RA\n");
+				rev_stack(&var.a, "ra\n");
 			else if (((var.a->index >> loop) & 1) == 0)
-				push(&var.a, &var.b, "PB\n");
+				push(&var.a, &var.b, "pb\n");
 			i++;
 		}
 		while (var.b != NULL)
-			push(&var.b, &var.a, "PA\n");
+			push(&var.b, &var.a, "pa\n");
 		loop++;
 	}
 }
@@ -91,13 +91,13 @@ void	sort(int mode, t_var var)
 
 void	sorting_stack(t_var	var)
 {
-	if (var.max_index == 1)
-		sort(2, var);
-	else if (var.max_index == 2)
-		sort(3, var);
-	else if (var.max_index == 4)
-		sort(5, var);
-	else
+	//if (var.max_index == 1)
+	//	sort(2, var);
+	//else if (var.max_index == 2)
+	//	sort(3, var);
+	//else if (var.max_index == 4)
+	//	sort(5, var);
+	//else
 		radixs(var);
 }
 

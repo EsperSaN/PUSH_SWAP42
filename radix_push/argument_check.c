@@ -6,7 +6,7 @@
 /*   By: pruenrua <pruenrua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/17 01:29:26 by root              #+#    #+#             */
-/*   Updated: 2023/07/21 12:42:56 by pruenrua         ###   ########.fr       */
+/*   Updated: 2023/07/21 21:30:25 by pruenrua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	av_checker(char	**av)
 	int		j;
 	long	value;
 
-	i = 0;
+	i = -1;
 	while (av[++i])
 	{
 		if (av[i] == NULL || ft_strlen(av[i]) == 0 

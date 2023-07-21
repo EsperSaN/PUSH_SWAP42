@@ -6,7 +6,7 @@
 /*   By: pruenrua <pruenrua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/17 05:33:00 by root              #+#    #+#             */
-/*   Updated: 2023/07/21 20:55:48 by pruenrua         ###   ########.fr       */
+/*   Updated: 2023/07/21 21:28:58 by pruenrua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,23 @@
 
 #include <stdio.h>
 
-#define NULLEXIT "the null or \" \" is unacceptable\n"
-#define NUMOPEXIT "only the number and one operator is allow\n"
-#define EXOPEXIT "only number allow next to operator\n"
-#define OVERFLOW "the input is beyond the INT try again\n"
-#define DUPEXIT "the input must not be duplicate\n"
-#define SPLITERROR "fail to split\n"
-#define MALLOCERROR "Fail to Malloc the joinstr\n"
-#define NOJOINED "no in put in joinedstr\n"
+//#define NULLEXIT "the null or \" \" is unacceptable\n"
+//#define NUMOPEXIT "only the number and one operator is allow\n"
+//#define EXOPEXIT "only number allow next to operator\n"
+//#define OVERFLOW "the input is beyond the INT try again\n"
+//#define DUPEXIT "the input must not be duplicate\n"
+//#define SPLITERROR "fail to split\n"
+//#define MALLOCERROR "Fail to Malloc the joinstr\n"
+//#define NOJOINED "no in put in joinedstr\n"
+
+# define NULLEXIT "Error\n"
+# define NUMOPEXIT "Error\n"
+# define EXOPEXIT "Error\n"
+# define OVERFLOW "Error\n"
+# define DUPEXIT "Error\n"
+# define SPLITERROR "Error\n"
+# define MALLOCERROR "Error\n"
+# define NOJOINED "Error\n"
 
 typedef struct t_s{
 	int				value;
