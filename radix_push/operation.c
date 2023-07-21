@@ -3,22 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   operation.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: pruenrua <pruenrua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/17 05:24:07 by root              #+#    #+#             */
-/*   Updated: 2023/07/17 05:24:43 by root             ###   ########.fr       */
+/*   Updated: 2023/07/21 20:49:54 by pruenrua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void push(t_stack **from, t_stack **to)
+void	push(t_stack **from, t_stack **to, char *str)
 {
-	t_stack *tmp;
+	t_stack	*tmp;
 
-	if(*from == NULL)
+	if (*from == NULL)
 		return ;
-	if(*to == NULL)
+	if (*to == NULL)
 	{
 		tmp = (*from)->next;
 		*to = *from;
@@ -32,18 +32,19 @@ void push(t_stack **from, t_stack **to)
 		*to = *from;
 		*from = tmp;
 	}
+	if (*str)
+		write(1, str, 3);
 }
 
 void	swap(t_stack **stack)
 {
-	t_stack *tmp_top;
-	t_stack *tmp_sec;
+	t_stack	*tmp_top;
+	t_stack	*tmp_sec;
 
 	if (*stack == NULL || (*stack)->next == NULL)
-		return;
+		return ;
 	tmp_top = *stack;
 	tmp_sec = (*stack)->next;
-
 	tmp_top->next = tmp_sec->next;
 	tmp_sec->next = *stack;
 	*stack = tmp_sec;
@@ -51,13 +52,13 @@ void	swap(t_stack **stack)
 
 void	re_rev_stack(t_stack **stack)
 {
-	t_stack *last;
-	t_stack *semi_last;
+	t_stack	*last;
+	t_stack	*semi_last;
 
-	if (stack == NULL || *stack  == NULL || (*stack)->next == NULL)
+	if (stack == NULL || *stack == NULL || (*stack)->next == NULL)
 		return ;
 	if (ft_lstlen(*stack) == 2)
-		return(swap(stack));
+		return (swap(stack));
 	semi_last = *stack;
 	last = ft_lstlast(*stack);
 	while (semi_last->next->next != NULL)
@@ -67,17 +68,18 @@ void	re_rev_stack(t_stack **stack)
 	*stack = last;
 }
 
-void	rev_stack(t_stack **stack)
+void	rev_stack(t_stack **stack, char *str)
 {
 	t_stack	*next_top;
-	t_stack *last;
+	t_stack	*last;
 
-	if (stack == NULL || *stack  == NULL || (*stack)->next == NULL)
+	if (stack == NULL || *stack == NULL || (*stack)->next == NULL)
 		return ;
 	last = ft_lstlast(*stack);
 	next_top = (*stack)->next;
-
 	last->next = *stack;
 	(*stack)->next = NULL;
 	*stack = next_top;
+	if (*str)
+		write(1, str, 3);
 }

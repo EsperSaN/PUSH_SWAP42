@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_dup_cheker.c                                  :+:      :+:    :+:   */
+/*   init_dup_checker.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: pruenrua <pruenrua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/17 01:37:22 by root              #+#    #+#             */
-/*   Updated: 2023/07/17 05:31:46 by root             ###   ########.fr       */
+/*   Updated: 2023/07/21 20:53:19 by pruenrua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ int	is_dup(t_stack	*st)
 		tmp = st->next;
 		while (tmp != NULL)
 		{
-			printf("compare [%d] with [%d]\n", st->value, tmp->value);
 			if (st->value == tmp->value)
 				return (1);
 			tmp = tmp->next;
@@ -29,18 +28,19 @@ int	is_dup(t_stack	*st)
 		st = st->next;
 	}
 	return (0);
- }
+}
 
-void	stack_init(t_var *var) // dont use the ac thing !!!!
+void	stack_init(t_var *var)
 {
 	char		**split_str;
 	int			i;
 	int			word;
-	
+
 	split_str = ft_split(var->joined_av, ' ');
 	if (split_str == NULL)
-		error_exit(255, "fail to split\n");
+		error_exit(255, SPLITERROR, 0);
 	free(var->joined_av);
+	av_checker(split_str);
 	i = 0;
 	word = 0;
 	while (split_str[word])
@@ -48,7 +48,7 @@ void	stack_init(t_var *var) // dont use the ac thing !!!!
 	var->b = NULL;
 	var->a = NULL;
 	var->max_index = word - 1;
-	var->a = malloc(sizeof(t_stack) * word); // try na init the link list to the array to use both index and the next function of those thing
+	var->a = malloc(sizeof(t_stack) * word);
 	while (split_str[i])
 	{
 		var->a[i].value = ft_atoi(split_str[i]);
@@ -59,11 +59,11 @@ void	stack_init(t_var *var) // dont use the ac thing !!!!
 			var->a[i].next = &var->a[i + 1];
 		i++;
 	}
+	free2d(split_str);
 	if (is_dup(var->a))
 	{
 		free(var->a);
-		error_exit(255, "the input must not be duplicate\n");
+		error_exit(255, DUPEXIT, 0);
 	}
-	free2d(split_str);
 	var->tmp_a = var->a;
 }

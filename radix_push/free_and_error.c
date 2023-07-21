@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   free_and_error.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: pruenrua <pruenrua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/17 05:29:33 by root              #+#    #+#             */
-/*   Updated: 2023/07/17 12:02:53 by root             ###   ########.fr       */
+/*   Updated: 2023/07/21 13:46:46 by pruenrua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,11 @@ void	check_stack(t_var var)
 	printf("[A] =");
 	while (var.a)
 	{
-		printf(" [%d] ", var.a->value);
+		printf(" [%d (%d)] ", var.a->value, var.a->index);
 		var.a = var.a->next;
 	}
 	printf("\n[B] =");
-	while(var.b)
+	while (var.b)
 	{
 		printf(" [%d] ", var.b->value);
 		var.b = var.b->next;
@@ -30,19 +30,13 @@ void	check_stack(t_var var)
 	printf("\n");
 }
 
-
-void	error_exit(int err, char *errstr)
-{
-	write(2, "Error : ", 8);
-	write(2, errstr, ft_strlen(errstr));
-	exit(err);
-}
-
 void	free2d(char	**str)
 {
 	int		i;
 
 	i = -1;
+	if (!str)
+		return ;
 	while (str[++i])
 	{
 		if (str[i])
@@ -59,6 +53,14 @@ void	free2d(char	**str)
 	str = NULL;
 }
 
+void	error_exit(int err, char *errstr, char **twoD)
+{
+	free2d(twoD);
+	write(2, "Error : ", 8);
+	write(2, errstr, ft_strlen(errstr));
+	exit(err);
+}
+
 void	free_var(t_var	*var)
 {
 	int	i;
@@ -73,6 +75,4 @@ void	free_var(t_var	*var)
 		}
 	}
 	free(var->a);
-	//if (var->joined_av)
-	//	free(var->joined_av);
 }

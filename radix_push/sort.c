@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: pruenrua <pruenrua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/17 01:39:07 by root              #+#    #+#             */
-/*   Updated: 2023/07/17 10:49:39 by root             ###   ########.fr       */
+/*   Updated: 2023/07/21 21:06:15 by pruenrua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,64 +14,91 @@
 
 int	is_sorted(t_var	var)
 {
-	int	i;
+	int		i;
+	t_stack	*tmp;
 
+	tmp = var.a;
 	i = 0;
-	while (i < var.max_index)
+	while (tmp->next != NULL)
 	{
-		if (var.a[i].index > var.a[i + 1].index)
+		if (tmp->index > tmp->next->index)
 			return (0);
 		i++;
+		tmp = tmp->next;
 	}
 	return (1);
 }
 
 static int	find_max_bit(int max_index)
 {
-	int max_bit = 0;
-	int	loop = 0;
-	printf("input is [%d]\n", max_index);
+	int	max_bit;
+	int	loop;
+
+	loop = 0;
+	max_bit = 0;
 
 	while (max_index != 0)
 	{
 		max_bit++;
 		loop++;
 		if (max_index >> loop == 0)
-			break;
+			break ;
 	}
-	printf("maxbit is [%d]", max_bit);
 	return (max_bit);
 }
 
 void	radixs(t_var var)
 {
-	int loop = 0;
+	int	loop;
+	int	max_loop;
+	int	i;
+
+	loop = 0;
 	if (is_sorted(var))
-		return ((void)write(1, "sorted in radix thx\n", 20));
-	int max_loop = find_max_bit(var.max_index);
-	while (loop <= max_loop)
+		return ;
+	max_loop = find_max_bit(var.max_index);
+	while (!is_sorted(var) && loop <= max_loop)
 	{
-		printf("\nloop [%d]\n", loop);
-		int i = 0;
-		while (i < var.max_index)
+		i = 0;
+		while (i <= var.max_index)
 		{
-			if( ((var.a->index >> loop) % 2) == 0)
-				push(&var.a, &var.b);
-			else
-				rev_stack(&var.a);
-			//printf("in sheft [%d] value is [%d]", loop ,value);
-			
+			if (((var.a->index >> loop) & 1) == 1)
+				rev_stack(&var.a, "RA\n");
+			else if (((var.a->index >> loop) & 1) == 0)
+				push(&var.a, &var.b, "PB\n");
 			i++;
 		}
-		while(var.b != NULL)
-			push(&var.b, &var.a);
-		check_stack(var);
+		while (var.b != NULL)
+			push(&var.b, &var.a, "PA\n");
 		loop++;
 	}
-
 }
+
+void	sort(int mode, t_var var)
+{
+	if (mode == 2)
+	{
+		if (!is_sorted(var))
+			swap(&var.a);
+	}
+	if (mode == 3)
+	{
+	}
+	else if (mode == 5)
+	{
+	}
+}
+
 void	sorting_stack(t_var	var)
 {
-	printf("in the sort stack \n");
-	radixs(var);
+	if (var.max_index == 1)
+		sort(2, var);
+	else if (var.max_index == 2)
+		sort(3, var);
+	else if (var.max_index == 4)
+		sort(5, var);
+	else
+		radixs(var);
 }
+
+

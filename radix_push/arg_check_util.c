@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   arg_check_util.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: pruenrua <pruenrua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/17 01:29:26 by root              #+#    #+#             */
-/*   Updated: 2023/07/17 01:32:39 by root             ###   ########.fr       */
+/*   Updated: 2023/07/21 10:44:45 by pruenrua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	is_num(char c)
 
 int	is_space(char c)
 {
-	if (c == 32 || c == 10) //????
+	if (c == 32 || c == 10)
 		return (1);
 	return (0);
 }
@@ -56,7 +56,7 @@ int	is_all_space(char	*str)
 	while (*str)
 	{
 		if (!is_space(*str))
-			return(0);
+			return (0);
 		str++;
 	}
 	return (1);

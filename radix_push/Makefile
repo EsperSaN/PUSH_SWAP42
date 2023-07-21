@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: root <root@student.42.fr>                  +#+  +:+       +#+         #
+#    By: pruenrua <pruenrua@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/17 05:33:12 by root              #+#    #+#              #
-#    Updated: 2023/07/17 12:08:58 by root             ###   ########.fr        #
+#    Updated: 2023/07/21 10:33:11 by pruenrua         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,9 +26,9 @@ HEADER = push_swap.h
 
 RM = rm -f
 
-all : $(NAME) $(HEADER) clean
+all :  $(HEADER) $(NAME)
 
-$(NAME) : $(HEADER) $(OBJ)
+$(NAME) : $(OBJ)
 	$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
 
 clean :
@@ -39,4 +39,4 @@ fclean : clean
 
 re : fclean all
 
-.PHONY : all re clean fclean push_swap
+.PHONY : all re clean fclean
