@@ -3,14 +3,25 @@
 /*                                                        :::      ::::::::   */
 /*   util.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: pruenrua <pruenrua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/17 05:25:20 by root              #+#    #+#             */
-/*   Updated: 2023/07/17 05:25:37 by root             ###   ########.fr       */
+/*   Updated: 2023/07/23 02:02:19 by pruenrua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	ft_putstr(char *str)
+{
+	if (!str)
+		return ;
+	while (*str)
+	{
+		write(1, str, 1);
+		str++;
+	}
+}
 
 size_t	ft_strlen(const char *s)
 {

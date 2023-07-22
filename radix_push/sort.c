@@ -5,19 +5,19 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: pruenrua <pruenrua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/17 01:39:07 by root              #+#    #+#             */
-/*   Updated: 2023/07/21 21:37:28 by pruenrua         ###   ########.fr       */
+/*   Created: 2023/07/23 02:58:12 by pruenrua          #+#    #+#             */
+/*   Updated: 2023/07/23 03:01:16 by pruenrua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	is_sorted(t_var	var)
+int	is_sorted(t_stack	*st)
 {
 	int		i;
 	t_stack	*tmp;
 
-	tmp = var.a;
+	tmp = st;
 	i = 0;
 	while (tmp->next != NULL)
 	{
@@ -29,76 +29,91 @@ int	is_sorted(t_var	var)
 	return (1);
 }
 
-static int	find_max_bit(int max_index)
+int	find_min_index(t_stack *a)
 {
-	int	max_bit;
-	int	loop;
+	int	min_index;
 
-	loop = 0;
-	max_bit = 0;
-
-	while (max_index != 0)
+	min_index = a->index;
+	while (a != NULL)
 	{
-		max_bit++;
-		loop++;
-		if (max_index >> loop == 0)
-			break ;
+		if (a->index < min_index)
+			min_index = a->index;
+		a = a->next;
 	}
-	return (max_bit);
+	return (min_index);
 }
 
-void	radixs(t_var var)
+void	sort_three(t_stack *a)
 {
-	int	loop;
-	int	max_loop;
-	int	i;
+	int	pos_st;
+	int	pos_nd;
+	int	pos_rd;
+	int	min_index;
 
-	loop = 0;
-	if (is_sorted(var))
+	if (is_sorted(a))
 		return ;
-	max_loop = find_max_bit(var.max_index);
-	while (!is_sorted(var) && loop <= max_loop)
+	pos_st = a->index;
+	pos_nd = a->next->index;
+	pos_rd = a->next->next->index;
+	min_index = find_min_index(a);
+	if (pos_st == (min_index + 0) && pos_nd > pos_rd)
+		ft_putstr("ra\nsa\nrra\n");
+	else if (pos_st == (min_index + 1) && pos_nd == (min_index + 0))
+		ft_putstr("sa\n");
+	else if (pos_st == (min_index + 2) && pos_nd == (min_index + 0))
+		ft_putstr("ra\n");
+	else if (pos_st == (min_index + 2) && pos_nd == (min_index + 1))
 	{
-		i = 0;
-		while (i <= var.max_index)
+		ft_putstr("sa\nrra\n");
+	}
+	else
+		ft_putstr("rra\n");
+}
+
+int	is_on_the_bottom(t_stack *stack, int t_index)
+{
+	int		size;
+	int		pos;
+
+	if (!stack)
+		return (0);
+	size = ft_lstlen(stack);
+	pos = 1;
+	while (stack != NULL)
+	{
+		if (stack->index == t_index)
+			break ;
+		pos++;
+		stack = stack->next;
+	}
+	if (pos > size / 2)
+		return (1);
+	return (0);
+}
+
+void	sort_five(t_var var)
+{
+	int		target;
+
+	target = 0;
+	while (1)
+	{
+		if (is_on_the_bottom(var.a, target))
 		{
-			if (((var.a->index >> loop) & 1) == 1)
-				rev_stack(&var.a, "ra\n");
-			else if (((var.a->index >> loop) & 1) == 0)
-				push(&var.a, &var.b, "pb\n");
-			i++;
+			while (var.a->index != target)
+				re_rev_stack(&var.a, "rra\n");
+			push(&var.a, &var.b, "pb\n");
 		}
-		while (var.b != NULL)
-			push(&var.b, &var.a, "pa\n");
-		loop++;
+		else
+		{
+			while (var.a->index != target)
+				rev_stack(&var.a, "ra\n");
+			push(&var.a, &var.b, "pb\n");
+		}
+		if (target == 1)
+			break ;
+		target = 1;
 	}
+	sort_three(var.a);
+	ft_putstr("pa\npa\n");
 }
-
-void	sort(int mode, t_var var)
-{
-	if (mode == 2)
-	{
-		if (!is_sorted(var))
-			swap(&var.a);
-	}
-	if (mode == 3)
-	{
-	}
-	else if (mode == 5)
-	{
-	}
-}
-
-void	sorting_stack(t_var	var)
-{
-	//if (var.max_index == 1)
-	//	sort(2, var);
-	//else if (var.max_index == 2)
-	//	sort(3, var);
-	//else if (var.max_index == 4)
-	//	sort(5, var);
-	//else
-		radixs(var);
-}
-
-

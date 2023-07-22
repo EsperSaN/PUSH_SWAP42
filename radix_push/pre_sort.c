@@ -6,7 +6,7 @@
 /*   By: pruenrua <pruenrua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/17 05:23:16 by root              #+#    #+#             */
-/*   Updated: 2023/07/21 12:59:10 by pruenrua         ###   ########.fr       */
+/*   Updated: 2023/07/23 03:19:22 by pruenrua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ static int	find_min_no_index(t_stack *stack, int size)
 	{
 		lowest++;
 	}
-
 	while (i <= size)
 	{
 		if (stack[lowest].value > stack[i].value && stack[i].index == -1)

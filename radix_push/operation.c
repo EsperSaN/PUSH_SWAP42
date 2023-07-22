@@ -6,7 +6,7 @@
 /*   By: pruenrua <pruenrua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/17 05:24:07 by root              #+#    #+#             */
-/*   Updated: 2023/07/21 20:49:54 by pruenrua         ###   ########.fr       */
+/*   Updated: 2023/07/23 01:54:49 by pruenrua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,11 +32,10 @@ void	push(t_stack **from, t_stack **to, char *str)
 		*to = *from;
 		*from = tmp;
 	}
-	if (*str)
-		write(1, str, 3);
+	ft_putstr(str);
 }
 
-void	swap(t_stack **stack)
+void	swap(t_stack **stack, char *str)
 {
 	t_stack	*tmp_top;
 	t_stack	*tmp_sec;
@@ -48,9 +47,10 @@ void	swap(t_stack **stack)
 	tmp_top->next = tmp_sec->next;
 	tmp_sec->next = *stack;
 	*stack = tmp_sec;
+	ft_putstr(str);
 }
 
-void	re_rev_stack(t_stack **stack)
+void	re_rev_stack(t_stack **stack, char *str)
 {
 	t_stack	*last;
 	t_stack	*semi_last;
@@ -58,7 +58,7 @@ void	re_rev_stack(t_stack **stack)
 	if (stack == NULL || *stack == NULL || (*stack)->next == NULL)
 		return ;
 	if (ft_lstlen(*stack) == 2)
-		return (swap(stack));
+		return (swap(stack, NULL));
 	semi_last = *stack;
 	last = ft_lstlast(*stack);
 	while (semi_last->next->next != NULL)
@@ -66,6 +66,7 @@ void	re_rev_stack(t_stack **stack)
 	last->next = *stack;
 	semi_last->next = NULL;
 	*stack = last;
+	ft_putstr(str);
 }
 
 void	rev_stack(t_stack **stack, char *str)
@@ -80,6 +81,5 @@ void	rev_stack(t_stack **stack, char *str)
 	last->next = *stack;
 	(*stack)->next = NULL;
 	*stack = next_top;
-	if (*str)
-		write(1, str, 3);
+	ft_putstr(str);
 }

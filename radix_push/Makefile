@@ -6,7 +6,7 @@
 #    By: pruenrua <pruenrua@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/17 05:33:12 by root              #+#    #+#              #
-#    Updated: 2023/07/21 10:33:11 by pruenrua         ###   ########.fr        #
+#    Updated: 2023/07/23 02:57:44 by pruenrua         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ CFLAGS = -Wall -Werror -Wextra
 
 SRC = util.c util2_lst.c util3_split.c util4_atoi.c \
 	argument_check.c init_dup_checker.c arg_check_util.c av_joiner.c \
-	free_and_error.c pre_sort.c operation.c sort.c push_swap.c  
+	free_and_error.c pre_sort.c operation.c sort.c radix.c push_swap.c  
 
 OBJ = $(SRC:.c=.o)
 

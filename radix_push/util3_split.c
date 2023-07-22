@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   util3_split.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: pruenrua <pruenrua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/17 05:27:49 by root              #+#    #+#             */
-/*   Updated: 2023/07/17 12:05:19 by root             ###   ########.fr       */
+/*   Updated: 2023/07/23 03:19:35 by pruenrua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include	"push_swap.h"
+#include "push_swap.h"
 
 static size_t	count_on_me(char const *s, char c)
 {
