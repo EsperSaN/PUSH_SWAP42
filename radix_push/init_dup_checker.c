@@ -6,13 +6,13 @@
 /*   By: pruenrua <pruenrua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/17 01:37:22 by root              #+#    #+#             */
-/*   Updated: 2023/07/21 20:53:19 by pruenrua         ###   ########.fr       */
+/*   Updated: 2023/07/23 03:36:54 by pruenrua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	is_dup(t_stack	*st)
+static int	is_dup(t_stack	*st)
 {
 	t_stack	*tmp;
 
@@ -48,7 +48,9 @@ void	stack_init(t_var *var)
 	var->b = NULL;
 	var->a = NULL;
 	var->max_index = word - 1;
-	var->a = malloc(sizeof(t_stack) * word);
+	var->a = calloc(sizeof(t_stack), word);
+	if (var->a == NULL)
+		error_exit(255, MALLOCERROR, 0);
 	while (split_str[i])
 	{
 		var->a[i].value = ft_atoi(split_str[i]);

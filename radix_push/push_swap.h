@@ -6,7 +6,7 @@
 /*   By: pruenrua <pruenrua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/17 05:33:00 by root              #+#    #+#             */
-/*   Updated: 2023/07/23 03:22:13 by pruenrua         ###   ########.fr       */
+/*   Updated: 2023/07/23 03:30:45 by pruenrua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,6 @@ void	av_checker(char	**av);
 char	*av_joiner(char	**av);
 
 /* init_dup_checker.c */
-int		is_dup(t_stack	*st);
 void	stack_init(t_var *var);
 
 /* operation.c */

@@ -6,7 +6,7 @@
 /*   By: pruenrua <pruenrua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/23 02:58:12 by pruenrua          #+#    #+#             */
-/*   Updated: 2023/07/23 03:01:16 by pruenrua         ###   ########.fr       */
+/*   Updated: 2023/07/23 03:33:01 by pruenrua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	is_sorted(t_stack	*st)
 	return (1);
 }
 
-int	find_min_index(t_stack *a)
+static int	find_min_index(t_stack *a)
 {
 	int	min_index;
 
@@ -70,7 +70,7 @@ void	sort_three(t_stack *a)
 		ft_putstr("rra\n");
 }
 
-int	is_on_the_bottom(t_stack *stack, int t_index)
+static int	is_on_the_bottom(t_stack *stack, int t_index)
 {
 	int		size;
 	int		pos;
