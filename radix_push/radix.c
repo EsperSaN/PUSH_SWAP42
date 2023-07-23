@@ -6,11 +6,28 @@
 /*   By: pruenrua <pruenrua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/17 01:39:07 by root              #+#    #+#             */
-/*   Updated: 2023/07/23 03:19:07 by pruenrua         ###   ########.fr       */
+/*   Updated: 2023/07/23 22:15:56 by pruenrua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+int	is_sorted(t_stack	*st)
+{
+	int		i;
+	t_stack	*tmp;
+
+	tmp = st;
+	i = 0;
+	while (tmp->next != NULL)
+	{
+		if (tmp->index > tmp->next->index)
+			return (0);
+		i++;
+		tmp = tmp->next;
+	}
+	return (1);
+}
 
 static int	find_max_bit(int max_index)
 {
@@ -64,6 +81,8 @@ void	sorting_stack(t_var	var)
 		swap(&var.a, "sa\n");
 	else if (var.max_index == 2)
 		sort_three(var.a);
+	else if (var.max_index == 3)
+		sort_four(var);
 	else if (var.max_index == 4)
 		sort_five(var);
 	else

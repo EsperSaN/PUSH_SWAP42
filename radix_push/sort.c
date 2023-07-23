@@ -6,28 +6,11 @@
 /*   By: pruenrua <pruenrua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/23 02:58:12 by pruenrua          #+#    #+#             */
-/*   Updated: 2023/07/23 03:33:01 by pruenrua         ###   ########.fr       */
+/*   Updated: 2023/07/23 22:15:44 by pruenrua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-int	is_sorted(t_stack	*st)
-{
-	int		i;
-	t_stack	*tmp;
-
-	tmp = st;
-	i = 0;
-	while (tmp->next != NULL)
-	{
-		if (tmp->index > tmp->next->index)
-			return (0);
-		i++;
-		tmp = tmp->next;
-	}
-	return (1);
-}
 
 static int	find_min_index(t_stack *a)
 {
@@ -116,4 +99,18 @@ void	sort_five(t_var var)
 	}
 	sort_three(var.a);
 	ft_putstr("pa\npa\n");
+}
+
+void	sort_four(t_var var)
+{
+	while (var.a->index != 0)
+	{
+		if (is_on_the_bottom(var.a, 0))
+			re_rev_stack(&var.a, "rra\n");
+		else
+			rev_stack(&var.a, "ra\n");
+	}
+	push(&var.a, &var.b, "pb\n");
+	sort_three(var.a);
+	ft_putstr("pa\n");
 }

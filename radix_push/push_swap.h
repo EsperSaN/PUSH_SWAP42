@@ -6,7 +6,7 @@
 /*   By: pruenrua <pruenrua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/17 05:33:00 by root              #+#    #+#             */
-/*   Updated: 2023/07/23 03:30:45 by pruenrua         ###   ########.fr       */
+/*   Updated: 2023/07/23 22:16:15 by pruenrua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ int		is_num(char c);
 
 /* argument_check.c */
 void	av_checker(char	**av);
+void	argv_checker(char	**av);
 
 /* av_joiner.c */
 char	*av_joiner(char	**av);
@@ -66,11 +67,12 @@ void	pre_sort_index(t_var	*var);
 /* radix.c */
 void	sorting_stack(t_var	var);
 void	radixs(t_var var);
+int		is_sorted(t_stack *stack);
 
 /* sort.c */
 void	sort_three(t_stack *a);
 void	sort_five(t_var var);
-int		is_sorted(t_stack *stack);
+void	sort_four(t_var var);
 
 /* util.c */
 size_t	ft_strlen(const char *s);
