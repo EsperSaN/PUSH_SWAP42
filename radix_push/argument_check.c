@@ -6,7 +6,7 @@
 /*   By: pruenrua <pruenrua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/17 01:29:26 by root              #+#    #+#             */
-/*   Updated: 2023/07/23 22:18:19 by pruenrua         ###   ########.fr       */
+/*   Updated: 2023/07/23 22:37:25 by pruenrua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,6 @@ void	argv_checker(char	**av)
 		}
 	}
 }
-
 
 void	av_checker(char	**av)
 {
